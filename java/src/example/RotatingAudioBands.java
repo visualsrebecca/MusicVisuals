@@ -3,12 +3,15 @@ package example;
 import ie.tudublin.Visual;
 import ie.tudublin.VisualException;
 
+//this one runs the audio but no visuals displaying.
+
 public class RotatingAudioBands extends Visual {
 
 
     public void settings()
     {
-        size(800, 800, P3D);
+        //have to remove P3D to get it to run on MAC
+        size(800, 800);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }
@@ -32,7 +35,7 @@ public class RotatingAudioBands extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("amsterdam.mp3");
+        loadAudio("FirstClass.mp3");
         getAudioPlayer().play();
         //startListening(); 
         
