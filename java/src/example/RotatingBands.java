@@ -1,1 +1,1 @@
-package ie.tudublin;
+package example;
