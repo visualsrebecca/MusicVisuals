@@ -1,7 +1,4 @@
-package example;
-
-import ie.tudublin.Visual;
-import ie.tudublin.VisualException;
+package ie.tudublin;
 
 public class RotatingAudioBands extends Visual {
 
@@ -32,7 +29,7 @@ public class RotatingAudioBands extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
+        loadAudio("amsterdam.mp3");
         getAudioPlayer().play();
         //startListening(); 
         

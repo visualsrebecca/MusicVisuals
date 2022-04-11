@@ -8,7 +8,8 @@ public class CubeVisual extends Visual
 
     public void settings()
     {
-        size(800, 800, P3D);
+        //have to take out P3D from size to get it to run on MAC
+        size(800, 800);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }

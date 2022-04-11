@@ -13,9 +13,16 @@ public class Main
         processing.core.PApplet.runSketch( a, new MyVisual());		
 	}
 
+	public static void RotatingAudioBands()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new RotatingAudioBands());
+    }
+
 	public static void main(String[] args)
 	{
-		Main main = new Main();
-		main.startUI();			
+		//Main main = new Main();
+		//main.startUI();
+		RotatingAudioBands();			
 	}
 }
