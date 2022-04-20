@@ -16,6 +16,7 @@ public class CubeVisual1 extends Visual
         //startListening();
         loadAudio("heroplanet.mp3");
         colorMode(HSB);
+        frameRate(60);
     }
 
     public void keyPressed()

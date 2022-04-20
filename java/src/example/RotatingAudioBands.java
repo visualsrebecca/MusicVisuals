@@ -11,7 +11,7 @@ public class RotatingAudioBands extends Visual {
     public void settings()
     {
         //have to remove P3D to get it to run on MAC
-        size(800, 800);
+        size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }
@@ -33,6 +33,7 @@ public class RotatingAudioBands extends Visual {
         noCursor();
         
         setFrameSize(256);
+        frameRate(60);
 
         startMinim();
         loadAudio("FirstClass.mp3");

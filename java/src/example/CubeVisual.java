@@ -9,7 +9,7 @@ public class CubeVisual extends Visual
     public void settings()
     {
         //have to take out P3D from size to get it to run on MAC
-        size(800, 800);
+        size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
         //fullScreen(P3D, SPAN);
     }
@@ -35,9 +35,10 @@ public class CubeVisual extends Visual
         noCursor();
         
         setFrameSize(256);
+        frameRate(60);
 
         startMinim();
-        loadAudio("heroplanet.mp3");
+        loadAudio("FirstClass.mp3");
         //getAp().play();
         //startListening(); 
         
