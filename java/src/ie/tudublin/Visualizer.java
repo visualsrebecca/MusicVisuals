@@ -1,7 +1,9 @@
 package ie.tudublin;
 
-import ddf.minim.*;
+import ddf.minim.Minim;
 import ddf.minim.signals.*;
+import ddf.minim.AudioBuffer;
+import ddf.minim.AudioPlayer;
 import processing.core.PApplet;
 
 
@@ -12,6 +14,7 @@ public class Visualizer extends PApplet {
 
     Minim minim;
     AudioPlayer mySound;
+    AudioBuffer ab;
      
     //MAIN SETUP
     public void setup () {
@@ -23,16 +26,23 @@ public class Visualizer extends PApplet {
         frameRate(60);
 
      
-        //MUSIC | Add mp3 to file and change name of "Murph.mp3" to your song name
+        //adding the song data
         minim = new Minim(this);
-        mySound = minim.loadFile("FirstClass.mp3");    
+        mySound = minim.loadFile("Amster.mp3"); 
+
+        //audioBuffer helps process the sound file
+        ab = mySound.mix;   
         mySound.play();
+
+
     } // end setup
 
     public void settings(){
 
-        size(1024, 1024, "processing.opengl.PGraphics3D");
-    } //end dsettings
+        // fullScreen() won't run on mac so this solution works
+        size(displayWidth, displayHeight, "processing.opengl.PGraphics3D");
+
+    } //end settings
      
     public void draw () {
      
@@ -52,22 +62,39 @@ public class Visualizer extends PApplet {
             float x3 = sin(radians(i))*(500/angle); 
             float y3 = cos(radians(i))*(500/angle);
         
-            fill(255, 255, 0, 90); //yellow
+            //yellow
+            fill(255, 255, 0, 90);
             ellipse(x, y, mySound.left.get(i)*10, mySound.left.get(i)*10);
         
-            fill(255, 255, 255, 60); //wt
+            //white
+            fill(255, 255, 255, 60);
             rect(x3, y3, mySound.left.get(i)*20, mySound.left.get(i)*10);
         
-            fill(255, 128, 0, 90); //orange
+            //green 
+            fill(152,251,152, 90);
             rect(x, y, mySound.right.get(i)*10, mySound.left.get(i)*10);
      
-        
-            fill(255, 255, 255, 70); //wt
+            //white
+            fill(255, 255, 255, 70);
             rect(x3, y3, mySound.right.get(i)*10, mySound.right.get(i)*20);
-        }
-     
+        } //end for
+    
+
     n4 += 0.008;
     n6 += 0.04;
      
     } //end draw
+
+
+    //mute the song if M or m is pressed
+    public void keyPressed(){
+        if ( key == 'm'|| key == 'M' ){
+            if ( mySound.isMuted() ){
+            mySound.unmute();
+            }
+            else{
+            mySound.mute();
+            }
+        }
+    } // end keyPressed()
 }

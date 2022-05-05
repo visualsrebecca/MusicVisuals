@@ -1,25 +1,38 @@
 package ie.tudublin;
 
-import ddf.minim.*;
+import ddf.minim.Minim;
 import ddf.minim.signals.*;
+import ddf.minim.AudioBuffer;
+import ddf.minim.AudioPlayer;
 import processing.core.PApplet;
 
 public class SoundVisualizer extends PApplet{
     
     Minim minim;
     AudioPlayer mySound;
+    AudioBuffer audioBuffer;
+
+    int mode = 0;
 
     public void setup(){
         noStroke();
         rectMode(CENTER);
+
         minim = new Minim(this);
-        mySound = minim.loadFile("FirstClass.mp3");
+
+        //loading the sound file
+        mySound = minim.loadFile("Amster.mp3");
+
+        //audioBuffer helps process the sound file
+        audioBuffer = mySound.mix;
         mySound.play();
+
         frameRate(60);
     }
 
     public void settings(){
-        size(1024,1024,P3D);
+
+        size(displayWidth, displayHeight, P3D);
     }
 
     int n=0;
@@ -37,6 +50,26 @@ public class SoundVisualizer extends PApplet{
         }//end for
 
         n++;
+
+
+        switch(mode) {
+
+            case 1:
+                background(0);
+
+                break;
+
+
+
+            case 2:
+                background(0);
+
+
+                break;
+
+
+            
+        } //end switch
     }
 
     //mute out
